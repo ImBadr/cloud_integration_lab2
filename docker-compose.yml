@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  microservice_lab1:
+    image: demo:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: on-failure
+  database:
+    image: arm64v8/mysql
+    env_file:
+      - .env
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+    ports:
+      - "3306:3306"
+  microservice_lab2:
+    image: fastapi:latest
+    ports:
+      - "8000:8000"

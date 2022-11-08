@@ -29,7 +29,7 @@ actors = {
 
 @app.get("/movies/{id}/actors")
 async def root(id: int):
-    time.sleep(4)
+    # time.sleep(2)
 
     if not id:
         return actors
