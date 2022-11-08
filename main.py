@@ -1,7 +1,7 @@
 import uvicorn
+import time
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List
 
 app = FastAPI()
 
@@ -29,6 +29,8 @@ actors = {
 
 @app.get("/movies/{id}/actors")
 async def root(id: int):
+    time.sleep(4)
+
     if not id:
         return actors
 
